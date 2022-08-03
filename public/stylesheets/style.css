@@ -45,45 +45,54 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 header .title-store {
-  font-size: 60px;
+  font-size: 100px;
   letter-spacing: 2px;
   margin: 0px;
   padding: 10px;
 }
 
 .home-page-sections {
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 30px;
 }
 
 .section-container{
-  background-color: #8b20e3;
   display: flex; flex-flow: column;
   justify-items: center;
   align-items: center;
-  height: 300px; width: 100%;
-  padding: 0px 50px;
+  width: 100%;
+  padding: 30px 80px; /*Aplica a todas las secciones*/
+}
+
+.about-container {
+  background: url("/images/backgroundImage.jpg") repeat center center fixed;
+  padding: 20px 80px; /*Aplica a sección de about*/
+  padding-bottom: 50px;
+  color: white;
 }
 
 .category-container {
   background-color: rgb(179, 54, 54);
-  height: 500px;
 }
 
 .category-container .category-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   grid-template-rows: repeat(auto-fit, minmax(150px, 150px));
+  row-gap: 20px; column-gap: 20px;
   align-items: center; justify-content: space-evenly;
   width: 100%; height: 100%;
   padding: 0px;
+  margin: 24px 0px;
 }
 
 .category-cards-container .card-category {
-  height: 100%;
+  height: 150px;
   text-decoration: none;
   color: black;
   display: flex;
@@ -112,4 +121,31 @@ img{
   font-size: 36px;
   font-weight: 600;
   letter-spacing: 3px;
+}
+
+.home-page-sections { /* Titulo de las secciones */
+  font-size: 50px;
+  margin: 20px 0px;
+}
+
+.container-about-text {
+  width: 100%;
+  display: flex;
+}
+
+@media (max-width: 440px) {
+  header .title-store {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  header .title-store {
+    font-size: 70px;
+  }
+
+  .section-container{
+    padding: 30px 40px; /*Aplica a todas las secciones*/
+  }
+  
 }
