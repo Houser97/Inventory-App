@@ -5,7 +5,30 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+      <h1 class="title-store">Music Instruments</h1>
+    </header>
+    
+    <div class="about-container section-container">
+      <h2 class="about home-page-sections">About us...</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisi ligula, 
+        dignissim eu nibh eu, ullamcorper ultricies ex. Cras malesuada molestie odio, 
+        sit amet elementum mi aliquet vitae. Integer interdum posuere massa, sed gravida
+        orci luctus nec. Integer mollis mi neque, et congue lectus cursus non. 
+        Quisque sit amet sem.
+      </p>
+    </div>
+    <div class="category-container section-container">
+      <h2 class="about home-page-sections">Categories</h2>
+      <div class="category-cards-container">
+        <a href="/guitars" class="card-category">Guitars</a>
+        <a href="/guitars" class="card-category">Pianos</a>
+        <a href="/guitars" class="card-category">Violins</a>
+      </div>
+    </div>
+    
+
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
