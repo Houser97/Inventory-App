@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const guitarSchema = new Schema({
     name: {type: String, required:true, maxLength: 100},
     description: {type: String, required: true, maxLength: 100},
-    category: {type: Schema.Types.ObjectId, ref: "Type", required: true},
+    type: {type: Schema.Types.ObjectId, ref: "Type", required: true},
     price: {type: Number, required: true},
     number_in_stock: {type: Number},
     brand: {type: Schema.Types.ObjectId, ref: "Brand", required: true},
@@ -12,7 +12,7 @@ const guitarSchema = new Schema({
 
 //Propiedades virtuales
 guitarSchema.virtual('url').get(function(){
-    return '/category/guitar' + this._id;
+    return '/category/guitars' + this._id;
 })
 
-module.exports = mongoose.model("Guitar", guitarSchema);
+module.exports = mongoose.model("Guitars", guitarSchema);
