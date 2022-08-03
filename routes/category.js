@@ -5,8 +5,10 @@ const router = express.Router();
 
 //------------ Guitarras
 // GET request for list of all Guitar items
-router.get("/guitars", function(){
-    console.log("Guitars")
+router.get("/guitars", function(req, res){
+    res.render("guitar_list", {
+        title: 'Guitars',
+    })
 })
 
 module.exports = router;
