@@ -38,6 +38,7 @@ a {
 
 p{
   font-size: 24px;
+  text-align: justify;
 }
 
 header{
@@ -58,7 +59,6 @@ header .title-store {
 
 .home-page-sections {
   color: rgb(255, 255, 255);
-  font-size: 30px;
 }
 
 .section-container{
@@ -82,9 +82,9 @@ header .title-store {
 
 .category-container .category-cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
   grid-template-rows: repeat(auto-fit, minmax(150px, 150px));
-  row-gap: 20px; column-gap: 20px;
+  row-gap: 60px; column-gap: 20px;
   align-items: center; justify-content: space-evenly;
   width: 100%; height: 100%;
   padding: 0px;
@@ -92,7 +92,7 @@ header .title-store {
 }
 
 .category-cards-container .card-category {
-  height: 150px;
+  height: 180px;
   text-decoration: none;
   color: black;
   display: flex;
@@ -124,7 +124,7 @@ img{
 }
 
 .home-page-sections { /* Titulo de las secciones */
-  font-size: 50px;
+  font-size: 60px;
   margin: 20px 0px;
 }
 
