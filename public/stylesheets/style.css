@@ -70,7 +70,7 @@ header .title-store {
 }
 
 .about-container {
-  background: url("/images/backgroundImage.jpg") repeat center center fixed;
+  background: url("/images/backgroundImage.jpg") no-repeat fixed 100%;
   padding: 20px 80px; /*Aplica a sección de about*/
   padding-bottom: 50px;
   color: white;

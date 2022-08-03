@@ -1,15 +1,12 @@
 const express = require("express");
-const router = express.Router();
+let router = express.Router();
 
+const category_controller = require('../controllers/categoryController');
 
 /// --------- Rutas para cada categoría --------- ///
 
 //------------ Guitarras
 // GET request for list of all Guitar items
-router.get("/guitars", function(req, res){
-    res.render("guitar_list", {
-        title: 'Guitars',
-    })
-})
+router.get("/:name", category_controller.category);
 
 module.exports = router;
