@@ -15,4 +15,4 @@ pianoSchema.virtual("url").get(function(){
     return "/category/pianos" + this._id;
 })
 
-module.exports = mongoose.model("Pianos", pianoSchema);
+module.exports = mongoose.model("Piano", pianoSchema);

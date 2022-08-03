@@ -15,4 +15,4 @@ guitarSchema.virtual('url').get(function(){
     return '/category/guitars' + this._id;
 })
 
-module.exports = mongoose.model("Guitars", guitarSchema);
+module.exports = mongoose.model("Guitar", guitarSchema);

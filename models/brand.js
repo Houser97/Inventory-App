@@ -11,4 +11,4 @@ brandSchema.virtual('url').get(function(){
     return "/category/brands" + this._id;
 });
 
-module.exports = mongoose.model("Brands", brandSchema);
+module.exports = mongoose.model("Brand", brandSchema);
