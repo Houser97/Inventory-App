@@ -8,6 +8,38 @@
     <header>
         <h1 class="title-store"><%- title %></h1>
     </header>
+    <div class="description-category">
+        <h2>Description:</h2>
+        <p><%- description %></p>
+    </div>
+    <div class="guitars_list">
+        <% if(guitars.length > 0) { %>
+                <% guitars.forEach(guitar => { %>
+                    <div class="card-guitar">
+                        <div class="guitar-name card-category">
+                            <%- guitar.name %>
+                        </div>
+                        <div class="guitar-name card-category">
+                            <%- guitar.description %>
+                        </div>
+                        <div class="guitar-name card-category">
+                            <%- guitar.category %>
+                        </div>
+                        <div class="guitar-name card-category">
+                            <%- guitar.price %>
+                        </div>
+                        <div class="guitar-name card-category">
+                            <%- guitar.number_in_stock %>
+                        </div>
+                        <div class="guitar-name card-category">
+                            <%- guitar.brand %>
+                        </div>
+                    </div>
+                <% })  %>
+        <% } else { %>
+            <div class="no-guitars">There are no guitars available</div>
+            <% } %>
+    </div>
 
     <%- include('./partials/footer.ejs') %>
   </body>
