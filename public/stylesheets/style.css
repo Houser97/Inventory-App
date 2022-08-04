@@ -35,7 +35,7 @@ footer {
 }
 
 a {
-  color: #00B7FF;
+  color: #000000;
 }
 
 p{
@@ -71,8 +71,9 @@ header .title-store {
 .svg-menu {
   position: absolute;
   left: 50px;
-  top: 25%;
   cursor: pointer;
+  width: 50px;
+  height: 50px;
 }
 
 .close-menu {
@@ -161,7 +162,7 @@ img{
 }
 
 .navbar {
-  font-size: 20px;
+  font-size: 26px;
   position: absolute;
   right: 100%;
   top: 100%;
@@ -175,34 +176,25 @@ img{
 
 @media (max-width: 850px) {
   .header-text {
-    padding-left: 50px;
+    padding-left: 120px;
     font-size: 80px;
   }
 }
 
 @media (max-width: 640px) {
   .header-text {
-    padding-left: 80px;
-    font-size: 70px;
-  }
-}
-
-@media (max-width: 560px) {
-  .header-text {
+    padding-left: 120px;
     font-size: 60px;
   }
-}
 
-@media (max-width: 500px) {
-  .header-text {
-    font-size: 60px;
-    padding-left: 100px;
+  .svg-menu {
+    width: 40px;
+    height: 40px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 520px) {
   .header-text {
-    font-size: 50px;
+    font-size: 46px;
   }
-  
 }
