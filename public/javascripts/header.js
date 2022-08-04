@@ -1,6 +1,8 @@
 const header = document.getElementById("header");
 const menu_svg = document.querySelector(".svg-menu");
 const close_menu = document.querySelector(".close-menu");
+const navbar = document.querySelector(".navbar");
+
 
 window.addEventListener("scroll", ()=> {
     if(document.documentElement.scrollTop !== 0){
@@ -20,4 +22,4 @@ menu_svg.addEventListener("click", () => {
 close_menu.addEventListener("click", () => {
     menu_svg.style.display = "flex";
     close_menu.style.display = "none";
-})
+});

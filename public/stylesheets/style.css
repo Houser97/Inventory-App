@@ -3,6 +3,8 @@
 * {
   box-sizing: border-box;
   font-family: 'Mouse Memoirs', sans-serif;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 html {
@@ -53,18 +55,23 @@ header{
 
 header .title-store {
   font-size: 100px;
+  min-height: 130px;
   letter-spacing: 2px;
   margin: 0px;
   padding: 10px;
   width: 100%;
   transition: all 250ms ease-in-out 0s;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
 .svg-menu {
   position: absolute;
   left: 50px;
-  top: 40px;
+  top: 25%;
   cursor: pointer;
 }
 
@@ -153,19 +160,43 @@ img{
   display: flex;
 }
 
-@media (max-width: 440px) {
-  header .title-store {
+.navbar {
+  font-size: 20px;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+}
+
+@media (max-width: 850px) {
+  .header-text {
+    padding-left: 50px;
     font-size: 80px;
   }
 }
 
-@media (max-width: 400px) {
-  header .title-store {
+@media (max-width: 640px) {
+  .header-text {
+    padding-left: 80px;
     font-size: 70px;
   }
+}
 
-  .section-container{
-    padding: 30px 40px; /*Aplica a todas las secciones*/
+@media (max-width: 560px) {
+  .header-text {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-text {
+    font-size: 60px;
+    padding-left: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-text {
+    font-size: 50px;
   }
   
 }
