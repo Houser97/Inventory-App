@@ -4,6 +4,7 @@ let router = express.Router();
 const category_controller = require('../controllers/categoryController');
 const brand_controller = require('../controllers/brandController');
 const type_controller = require('../controllers/typeController');
+const guitar_controller = require('../controllers/guitarController');
 
 /// --------- Rutas para cada categoría --------- ///
 
@@ -11,6 +12,8 @@ const type_controller = require('../controllers/typeController');
 // GET request for list of all Guitar items
 router.get("/:name", category_controller.category);
 
+// Crea guitarra, GET
+router.get('/guitar/create', guitar_controller.guitar_create_get);
 
 //------------ Brands
 // Crear Brand, GET

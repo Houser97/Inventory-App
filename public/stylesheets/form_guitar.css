@@ -87,7 +87,7 @@ form {
   display: flex; flex-flow: column;
   justify-content: space-around;
   width: 60%;
-  min-height: 350px;
+  min-height: 600px;
 }
 
 form .form-group {
