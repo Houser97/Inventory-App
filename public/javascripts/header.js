@@ -17,9 +17,11 @@ window.addEventListener("scroll", ()=> {
 menu_svg.addEventListener("click", () => {
     menu_svg.style.display = "none";
     close_menu.style.display = "flex";
+    navbar.style.transform = "translateX(100%)"
 })
 
 close_menu.addEventListener("click", () => {
     menu_svg.style.display = "flex";
     close_menu.style.display = "none";
+    navbar.style.transform = "translateX(0%)"
 });
