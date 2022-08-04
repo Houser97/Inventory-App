@@ -3,10 +3,23 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/brand_form.css' />
+    <script src="/javascripts/header.js" defer></script>
   </head>
   <body>
+
+    <header>
+      <%- include('./partials/navbar.ejs') %>
+      <svg class="svg-menu open-menu"  viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+      </svg>
+      <svg class="svg-menu close-menu"  viewBox="0 0 24 24">
+        <path fill="currentColor" d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
+      </svg>
+      <h1 id="title-store"><%- title %></h1>
+    </header>
+
+
     <form action="" method="POST">
         <div class="form-group">
             <label for="name">Name:</label>
@@ -15,10 +28,21 @@
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <input class="form-control" type="text" id="description" name="description" placeholder="description" required = true
-            >
+            <textarea class="form-control" type="text" id="description" name="description" placeholder="description" required = true>
+              <%- locals.brand ? locals.brand.description : "" %>
+            </textarea>
         </div>
         <button class="btn btn-primary" >Submit</button>
     </form>
+
+    <% if(locals.errors) { %>
+      <ul>
+          <% for(let i = 0; i < errors.length; i++) { %>
+              <li>
+                  <%= locals.errors[i].msg %>
+              </li>
+          <% } %>
+      </ul>
+  <% } %>
   </body>
 </html>

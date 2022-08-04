@@ -15,4 +15,7 @@ router.get("/:name", category_controller.category);
 // Crear Brand, GET
 router.get('/brand/create', brand_controller.brand_create_get);
 
+// Crear Brand, POST
+router.post('/brand/create', brand_controller.brand_create_post);
+
 module.exports = router;
