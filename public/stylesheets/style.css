@@ -43,6 +43,7 @@ p{
 
 header{
   width: 100%;
+  min-height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +56,20 @@ header .title-store {
   letter-spacing: 2px;
   margin: 0px;
   padding: 10px;
+  width: 100%;
+  transition: all 250ms ease-in-out 0s;
+  position: relative;
+}
+
+.svg-menu {
+  position: absolute;
+  left: 50px;
+  top: 40px;
+  cursor: pointer;
+}
+
+.close-menu {
+  display: none
 }
 
 .home-page-sections {
@@ -66,14 +81,19 @@ header .title-store {
   justify-items: center;
   align-items: center;
   width: 100%;
-  padding: 30px 80px; /*Aplica a todas las secciones*/
+  padding: 30px 0px; /*Aplica a todas las secciones*/
 }
 
 .about-container {
   background: url("/images/backgroundImage.jpg") no-repeat fixed 100%;
-  padding: 20px 80px; /*Aplica a sección de about*/
+  padding: 20px 0px; /*Aplica a sección de about*/
+  padding-top: 0px;
   padding-bottom: 50px;
   color: white;
+}
+
+.about-text{
+  padding: 0px 80px; /*Aplica a sección de about*/
 }
 
 .category-container {
