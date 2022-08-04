@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous">
+  </head>
+  <body>
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" id="name" name="name" placeholder="Name (Gibson ES-175)" required = true
+            >
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" placeholder="Description" required = "true">
+                
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select class="form-control" type="text" id="type" name="type" placeholder="Select type" required>
+                <% types.sort(function(a,b) { %>
+                    let textA = a.name.toUpperCase();
+                    let textB = b.name.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) 1:0
+                <% })  %>
+                <% types.forEach(type => { %>
+                        <option value= <%- type.id %>> <%- type.name %> </option>
+                    <% } %> 
+                <% }) %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stock">Number in stock:</label>
+            <input class="form-control" type="date" id="stock" name="stock" required
+            >
+        </div>
+        <div class="form-group">
+            <label for="Brand">Brand:</label>
+            <select class="form-control" type="text" id="Brand" name="Brand" placeholder="Select brand" required>
+                <% brands.sort(function(a,b) { %>
+                    let textA = a.name.toUpperCase();
+                    let textB = b.name.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) 1:0
+                <% })  %>
+                <% brands.forEach(brand => { %>
+                        <option value= <%- brand.id %>> <%- brand.name %> </option>
+                    <% } %> 
+                <% }) %>
+            </select>
+        </div>
+        <button class="btn btn-primary" >Submit</button>
+    </form>
+  </body>
+</html>
