@@ -24,6 +24,13 @@ router.get('/guitar/create', guitar_controller.guitar_create_get);
 // Crear guitarra, POST
 router.post('/guitar/create', guitar_controller.guitar_create_post);
 
+// Eliminar guitarra, GET
+router.get('/guitars/:id/delete', guitar_controller.guitar_remove_get);
+
+
+
+
+
 //------------ Brands
 // Crear Brand, GET
 router.get('/brand/create', brand_controller.brand_create_get);

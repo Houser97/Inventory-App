@@ -152,7 +152,7 @@ a{
   opacity:1;
 }
 
-svg {
+a {
   cursor: pointer;
   z-index: 11;
 }

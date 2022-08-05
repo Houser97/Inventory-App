@@ -1,0 +1,36 @@
+.item-inf {
+    padding: 10px 80px;
+    display: flex; flex-flow: column;
+}
+
+.name-item {
+    align-self: center;
+}
+
+form {
+    padding-bottom: 30px;
+}
+
+button {
+    background-color: rgb(14, 129, 206);
+    border: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(52, 139, 197);
+}
+
+.remove-text {
+    font-size: 36px;
+}
+
+.form-text {
+    width: 100%;
+    background-color: rgb(205, 204, 204);
+    display: flex; flex-flow: column;
+    align-items: center;
+}

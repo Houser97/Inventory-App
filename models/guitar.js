@@ -12,7 +12,7 @@ const guitarSchema = new Schema({
 
 //Propiedades virtuales
 guitarSchema.virtual('url').get(function(){
-    return '/category/guitars' + this._id;
+    return '/category/guitars/' + this._id;
 })
 
 module.exports = mongoose.model("Guitar", guitarSchema);
