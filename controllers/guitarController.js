@@ -102,3 +102,32 @@ exports.guitar_remove_post = function(req, res, next){
         res.redirect('/category/guitars');
     })
 }
+
+// Petición para eliminar guitarra, GET
+exports.guitar_update_get = function(req, res, next){
+    async.parallel({
+        types(callback){
+            Type.find(callback);
+        },
+        brands(callback){
+            Brand.find(callback);
+        },
+        guitar(callback){
+            Guitar.findById(req.params.id).populate('brand').populate('type').exec(callback);
+        }
+    }, function(err, results){
+        if(err){ return next(err); }
+        if(results.guitar === null){
+            let err = new Error('Guitar not found');
+            err.status = 404;
+            return next(err);
+        }
+        //Success, se abre el formulario
+        res.render('guitar_form', {
+            title: 'Update Guitar',
+            guitar: results.guitar,
+            types: results.types,
+            brands: results.brands,
+        })
+    })
+}

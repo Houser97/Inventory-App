@@ -7,6 +7,14 @@
     <link rel='stylesheet' href='/stylesheets/form_guitar.css' />
     <script src="/javascripts/header.js" defer></script>
   </head>
+  <%
+  let guitar_name = "";
+  let guitar_brand = "";
+  if(locals.guitar){
+    guitar_name = guitar.name;
+    guitar_brand = guitar.brand.name;
+  } 
+  %>
   <body>
 
     <header>
@@ -25,7 +33,7 @@
         <div class="form-group">
             <label for="name">Name:</label>
             <input class="form-control" type="text" id="name" name="name" placeholder="Name (Gibson ES-175)" required = true
-            value = <%- locals.guitar ? locals.guitar.name : "" %>>
+            value = "<%- `${guitar_name}` %>">
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
@@ -44,7 +52,7 @@
                 <% types.forEach(type => { %>
                         <option 
                         value= <%- type.id %>
-                        selected = <%- locals.guitar ? (locals.guitar.type === type.name ? 'selected' : "") : "" %>>
+                        <%- locals.guitar ? (locals.guitar.type.name === type.name ? 'selected' : false) : "" %>>
                           <%- type.name %> 
                         </option>
                 <% }) %>
@@ -71,7 +79,7 @@
                 <% brands.forEach(brand => { %>
                         <option 
                         value= <%- brand.id %>
-                        selected = <%- locals.guitar ? (locals.guitar.brand === brand.name ? 'selected' : "") : "" %> > 
+                        <%- guitar_brand === brand.name ? 'selected' : "" %> > 
                         <%- brand.name %> 
                       </option>
                 <% }) %>
