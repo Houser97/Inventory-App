@@ -97,12 +97,13 @@ header{
   align-items: center;
   justify-content: space-evenly;
   border-radius: 10px;
-  padding: 20px 10px;
+  padding: 15px 20px;
+  position: relative;
 }
 
-  .dollar {
-    font-size: 22px;
-  }
+.dollar {
+  font-size: 22px;
+}
 
 .card-category{
   display: flex;
@@ -119,7 +120,7 @@ a{
   color: black;
 }
 
-/* COntenido de la carta */
+/* Contenido de la carta */
 .card-category {
   font-size: 20px;
   text-align: center;
@@ -134,4 +135,28 @@ a{
 
 .item-name {
   font-size: 30px;
+}
+
+.svg-delete-update{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  width: 65px;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out 0s;
+}
+
+.card-item:hover > div {
+  opacity:1;
+}
+
+svg {
+  cursor: pointer;
+  z-index: 11;
+}
+
+svg:hover {
+  color: rgb(29, 29, 29);
 }
