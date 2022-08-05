@@ -2,8 +2,8 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/guitar_list.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/guitar_list.css' />
     <script src="/javascripts/header.js" defer></script>
   </head>
   <body>
@@ -26,32 +26,43 @@
         <p><%- category.description %></p>
     </div>
     <div class="item_list_container">
+      <div class="item_list_container-grid">
         <% if(guitars.length > 0) { %>
                 <% guitars.forEach(guitar => { %>
-                    <div class="card-guitar">
+                    <div class="card-item">
+                      <img id="image-category" src="/images/png/guitarPNG.png" alt="Piano1">
+                      <div class="info-instrument">
                         <div class="guitar-name card-category">
-                            <%- guitar.name %>
+                          Model: 
+                          <%- guitar.name %>
                         </div>
                         <div class="guitar-name card-category">
-                            <%- guitar.description %>
+                          Type:
+                            <%- guitar.type.name %>
                         </div>
                         <div class="guitar-name card-category">
-                            <%- guitar.category %>
-                        </div>
-                        <div class="guitar-name card-category">
+                            <div class="dollar">$</div> 
                             <%- guitar.price %>
                         </div>
                         <div class="guitar-name card-category">
+                          In Stock:
                             <%- guitar.number_in_stock %>
                         </div>
                         <div class="guitar-name card-category">
-                            <%- guitar.brand %>
+                          Brand:
+                            <%- guitar.brand.name %>
                         </div>
+                        <div class="guitar-name card-category">
+                          Id:
+                            <%- guitar.id %>
+                        </div>
+                      </div>
                     </div>
                 <% })  %>
         <% } else { %>
             <div class="no-guitars">There are no guitars available</div>
             <% } %>
+      </div>
     </div>
 
     <%- include('./partials/footer.ejs') %>

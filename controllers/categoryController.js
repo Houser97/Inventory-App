@@ -10,7 +10,7 @@ exports.category = function(req, res, next){
             Category.findOne({"name": req.params.name}).exec(callback)
         },
         guitars(callback){
-            Guitar.find(callback);
+            Guitar.find().populate('brand').populate('type').exec(callback);
         },
     }, function(err, results){
         if(err){ return next(err); }

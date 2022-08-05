@@ -6,11 +6,16 @@ const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", ()=> {
     if(document.documentElement.scrollTop !== 0){
-        header.style.position = "fixed";
-        header.style.backgroundColor = "rgb(0, 0, 0)";
+        if(header !== null){
+            header.style.position = "fixed";
+            header.style.backgroundColor = "rgb(0, 0, 0)";
+            
+        }
     } else {
-        header.style.position = "relative";
-        header.style.backgroundColor = "transparent";
+        if(header !== null){
+            header.style.position = "relative";
+            header.style.backgroundColor = "transparent";
+        }
     }
 })
 

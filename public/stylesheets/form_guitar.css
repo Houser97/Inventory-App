@@ -31,9 +31,9 @@ header{
     justify-content: center;
     text-align: center;
     color: white;
-    background-color: black;
     position: relative;
     margin-bottom: 20px;
+    background-color: black;
 }
 
 header #title-store {
