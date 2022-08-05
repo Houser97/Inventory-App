@@ -39,7 +39,7 @@
     <section class="form-text">
         <p class="remove-text">Do you really want to delete this guitar model?</p>
         <form action="" method="POST" id="form-guitar">
-                <input class="form-control" type="hidden" name="guitarid" value = <%- guitar._id %>>
+            <input class="form-control" type="hidden" name="guitarid" required value = <%- guitar._id %>>
             <button class="btn btn-primary" >Delete</button>
         </form>
     </section>

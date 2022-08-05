@@ -94,3 +94,11 @@ exports.guitar_remove_get = function(req, res, next){
         }
     });
 }
+
+// Petición para eliminar guitarra, POST
+exports.guitar_remove_post = function(req, res, next){
+    Guitar.findByIdAndRemove(req.body.guitarid, function deleteGuitar(err){
+        if(err) { return next(err); }
+        res.redirect('/category/guitars');
+    })
+}

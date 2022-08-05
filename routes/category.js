@@ -27,6 +27,8 @@ router.post('/guitar/create', guitar_controller.guitar_create_post);
 // Eliminar guitarra, GET
 router.get('/guitars/:id/delete', guitar_controller.guitar_remove_get);
 
+// Eliminar guitarra, POST
+router.post('/guitars/:id/delete', guitar_controller.guitar_remove_post);
 
 
 

@@ -157,6 +157,6 @@ a {
   z-index: 11;
 }
 
-svg:hover {
+.svg-uptadeDelete:hover {
   color: rgb(29, 29, 29);
 }
