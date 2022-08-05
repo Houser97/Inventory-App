@@ -33,6 +33,9 @@ router.post('/guitars/:id/delete', guitar_controller.guitar_remove_post);
 // Actualizar guitarra, GET
 router.get('/guitars/:id/update', guitar_controller.guitar_update_get);
 
+// Actualizar guitarra, POST
+router.post('/guitars/:id/update', guitar_controller.guitar_update_post);
+
 
 
 //------------ Brands

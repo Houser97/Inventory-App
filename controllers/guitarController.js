@@ -103,7 +103,7 @@ exports.guitar_remove_post = function(req, res, next){
     })
 }
 
-// Petición para eliminar guitarra, GET
+// Petición para UPDATE guitarra, GET
 exports.guitar_update_get = function(req, res, next){
     async.parallel({
         types(callback){
@@ -131,3 +131,51 @@ exports.guitar_update_get = function(req, res, next){
         })
     })
 }
+
+// Petición para UPDATE guitarra, POST
+exports.guitar_update_post = [
+    body('name', 'Name must be specified').trim().isLength({min: 3}).escape(),
+    body('description', 'Description must not be empty').trim().isLength({min: 1}).escape(),
+    body('type', 'Type must not be empty').trim().isLength({min: 1}).escape(),
+    body('price', 'Price must not be empty').trim().isLength({min: 1}).escape(),
+    body('stock', 'Stock must be specified').trim().isLength({min: 1}),
+    body('brand', 'Brand must be specified').trim().isLength({min: 1}).escape(),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        const guitar = new Guitar({
+            name: req.body.name,
+            description: req.body.description,
+            type: req.body.type,
+            price: req.body.price,
+            number_in_stock: req.body.stock,
+            brand: req.body.brand,
+            _id : req.params.id,
+        });
+        if(!errors.isEmpty()){
+            async.parallel({
+                types(callback){
+                    Type.find(callback);
+                },
+                brands(callback){
+                    Brand.find(callback);
+                },
+            }, function(err, results){
+                if(err){return next(err);}
+                res.render('guitar_form', {
+                    title: "Create Guitar",
+                    types: results.types,
+                    brands: results.brands,
+                    guitar: guitar,
+                    errors: errors.array(),
+                });
+                return;
+            });
+        } else {
+            Guitar.findByIdAndUpdate(req.params.id, guitar, {}, function(err, guitarUpdated){
+                if(err){return next(err);}
+                res.redirect('/category/guitars');
+            })
+        }
+    }
+];
