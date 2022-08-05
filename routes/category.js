@@ -12,8 +12,11 @@ const guitar_controller = require('../controllers/guitarController');
 // GET request for list of all Guitar items
 router.get("/:name", category_controller.category);
 
-// Crea guitarra, GET
+// Crear guitarra, GET
 router.get('/guitar/create', guitar_controller.guitar_create_get);
+
+// Crear guitarra, POST
+router.post('/guitar/create', guitar_controller.guitar_create_post);
 
 //------------ Brands
 // Crear Brand, GET

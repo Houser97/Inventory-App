@@ -25,12 +25,12 @@
         <div class="form-group">
             <label for="name">Name:</label>
             <input class="form-control" type="text" id="name" name="name" placeholder="Name (Gibson ES-175)" required = true
-            >
+            value = <%- locals.guitar ? locals.guitar.name : "" %>>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control" id="description" name="description" placeholder="Description" required = "true">
-                
+            <textarea id="description" name="description" placeholder="Description" required = "true">
+                <%- locals.guitar ? locals.guitar.description : "" %>
             </textarea>
         </div>
         <div class="form-group">
@@ -42,29 +42,51 @@
                     return (textA < textB) ? -1 : (textA > textB) 1:0;
                 <% })  %>
                 <% types.forEach(type => { %>
-                        <option value= <%- type.id %>> <%- type.name %> </option>
+                        <option 
+                        value= <%- type.id %>
+                        selected = <%- locals.guitar ? (locals.guitar.type === type.name ? 'selected' : "") : "" %>>
+                          <%- type.name %> 
+                        </option>
                 <% }) %>
             </select>
         </div>
         <div class="form-group">
+          <label for="price">Price:</label>
+          <input class="form-control" type="number" id="price" name="price" required
+          value = <%- locals.guitar ? locals.guitar.price : '' %>>
+      </div>
+        <div class="form-group">
             <label for="stock">Number in stock:</label>
             <input class="form-control" type="number" id="stock" name="stock" required
-            >
+            value = <%- locals.guitar ? locals.guitar.number_in_stock : '' %>>
         </div>
         <div class="form-group">
             <label for="Brand">Brand:</label>
-            <select class="form-control" type="text" id="Brand" name="Brand" placeholder="Select brand" required>
+            <select class="form-control" type="text" id="Brand" name="brand" placeholder="Select brand" required>
                 <% brands.sort(function(a,b) { %>
                     let textA = a.name.toUpperCase();
                     let textB = b.name.toUpperCase();
                     return (textA < textB) ? -1 : (textA > textB) 1:0;
                 <% })  %>
                 <% brands.forEach(brand => { %>
-                        <option value= <%- brand.id %>> <%- brand.name %> </option>
+                        <option 
+                        value= <%- brand.id %>
+                        selected = <%- locals.guitar ? (locals.guitar.brand === brand.name ? 'selected' : "") : "" %> > 
+                        <%- brand.name %> 
+                      </option>
                 <% }) %>
             </select>
         </div>
         <button class="btn btn-primary" >Submit</button>
     </form>
+    <% if(locals.errors) { %>
+      <ul>
+          <% for(let i = 0; i < errors.length; i++) { %>
+              <li>
+                  <%= locals.errors[i].msg %>
+              </li>
+          <% } %>
+      </ul>
+  <% } %>
   </body>
 </html>
