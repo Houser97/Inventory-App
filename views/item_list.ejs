@@ -32,11 +32,10 @@
                     <div class="card-item">
                       <img id="image-category" src="/images/png/guitarPNG.png" alt="Piano1">
                       <div class="info-instrument">
-                        <div class="guitar-name card-category">
-                          Model: 
+                        <div class="item-name card-category">
                           <%- guitar.name %>
                         </div>
-                        <div class="guitar-name card-category">
+                        <div class="type card-category">
                           Type:
                             <%- guitar.type.name %>
                         </div>
@@ -60,7 +59,7 @@
                     </div>
                 <% })  %>
         <% } else { %>
-            <div class="no-guitars">There are no guitars available</div>
+            <div class="no-guitars">There are no instruments available</div>
             <% } %>
       </div>
     </div>

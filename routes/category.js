@@ -10,7 +10,13 @@ const guitar_controller = require('../controllers/guitarController');
 
 //------------ Guitarras
 // GET request for list of all Guitar items
-router.get("/:name", category_controller.category);
+router.get("/guitars", category_controller.category_guitars);
+
+// GET request for list of all Violin items
+router.get("/violins", category_controller.category_violins);
+
+// GET request for list of all Violin items
+router.get("/pianos", category_controller.category_pianos);
 
 // Crear guitarra, GET
 router.get('/guitar/create', guitar_controller.guitar_create_get);

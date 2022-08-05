@@ -118,3 +118,20 @@ header{
 a{
   color: black;
 }
+
+/* COntenido de la carta */
+.card-category {
+  font-size: 20px;
+  text-align: center;
+}
+
+.info-instrument {
+  display: flex; flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.item-name {
+  font-size: 30px;
+}
