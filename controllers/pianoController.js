@@ -105,14 +105,15 @@ exports.piano_update_get = function(req, res, next){
             Type.find(callback);
         },
         piano(callback){
-            Piano.findById(req.params.id).exec(callback);
+            Piano.findById(req.params.id).populate('brand').populate('type').exec(callback);
         }
-    }, function(err, piano){
+    }, function(err, results){
         if(err){ return next(err) }
         res.render('piano_form', {
-            title: "Create Piano",
+            title: "Update Piano",
             brands: results.brands,
             types: results.types,
+            piano: results.piano,
         });
     });
 };

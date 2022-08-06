@@ -8,11 +8,11 @@
     <script src="/javascripts/header.js" defer></script>
   </head>
   <%
-  let piano_name = "";
-  let piano_brand = "";
-  if(locals.piano){
-    piano_name = piano.name;
-    piano_brand = piano.brand.name;
+  let violin_name = "";
+  let violin_brand = "";
+  if(locals.violin){
+    violin_name = violin.name;
+    violin_brand = violin.brand.name;
   } 
   %>
   <body>
@@ -32,13 +32,13 @@
     <form action="" method="POST" id="form-guitar">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input class="form-control" type="text" id="name" name="name" placeholder="Name (Alesis Melody 61)" required = true
-            value = "<%- `${piano_name}` %>">
+            <input class="form-control" type="text" id="name" name="name" placeholder="Name (Stentor)" required = true
+            value = "<%- `${violin_name}` %>">
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea id="description" name="description" placeholder="Description" required = "true">
-                <%- locals.piano ? locals.piano.description : "" %>
+                <%- locals.violin ? locals.violin.description : "" %>
             </textarea>
         </div>
         <div class="form-group">
@@ -52,7 +52,7 @@
                 <% types.forEach(type => { %>
                         <option 
                         value= <%- type.id %>
-                        <%- locals.piano ? (piano.type.name === type.name ? 'selected' : false) : "" %>>
+                        <%- locals.violin ? (violin.type.name === type.name ? 'selected' : false) : "" %>>
                           <%- type.name %> 
                         </option>
                 <% }) %>
@@ -61,12 +61,12 @@
         <div class="form-group">
           <label for="price">Price:</label>
           <input class="form-control" type="number" id="price" name="price" required
-          value = <%- locals.piano ? piano.price : '' %>>
+          value = <%- locals.violin ? violin.price : '' %>>
       </div>
         <div class="form-group">
             <label for="stock">Number in stock:</label>
             <input class="form-control" type="number" id="stock" name="stock" required
-            value = <%- locals.piano ? piano.number_in_stock : '' %>>
+            value = <%- locals.violin ? violin.number_in_stock : '' %>>
         </div>
         <div class="form-group">
             <label for="Brand">Brand:</label>
@@ -79,7 +79,7 @@
                 <% brands.forEach(brand => { %>
                         <option 
                         value= <%- brand.id %>
-                        <%- piano_brand === brand.name ? 'selected' : "" %> > 
+                        <%- violin_brand === brand.name ? 'selected' : "" %> > 
                         <%- brand.name %> 
                       </option>
                 <% }) %>
