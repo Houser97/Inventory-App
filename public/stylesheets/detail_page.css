@@ -9,6 +9,49 @@ h2 {
 .detail-info {
     display: flex;
     align-items: center;
+    margin-top: 10px;
+    gap: 30px;
+}
+.detail-info p {
+    font-size: 40px;
+    padding: 0px;
+    gap: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links-update-delete {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+a {
+
+    font-size: 40px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.update {
+    background-color: rgb(184, 206, 14);
+}
+
+.update:hover {
+    background-color: rgb(204, 222, 68);
+}
+
+.delete {
+    background-color: rgb(14, 129, 206);
+}
+
+.delete:hover {
+    background-color: rgb(47, 141, 204);
 }
 
 p, h2 {
@@ -17,4 +60,22 @@ p, h2 {
 
 p {
     font-size: 30px;
+}
+
+@media (max-width: 700px) {
+    a {
+        font-size: 34px;
+    }
+
+    .links-update-delete {
+        flex-flow: column;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    .detail-info p{
+        font-size: 28px;
+    }
 }
