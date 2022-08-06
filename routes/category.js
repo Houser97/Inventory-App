@@ -7,6 +7,7 @@ const type_controller = require('../controllers/typeController');
 
 const guitar_controller = require('../controllers/guitarController');
 const piano_controller = require('../controllers/pianoController');
+const violin_controller = require('../controllers/violinController');
 
 /// --------- Rutas para cada categoría --------- ///
 
@@ -82,5 +83,28 @@ router.post('/pianos/:id/update', piano_controller.piano_update_post);
 
 // Mostrar una guitarra
 router.get('/pianos/:id', piano_controller.piano_detail_get);
+
+
+//------------ Violines
+//Ruta creación de violin, GET
+router.get('/violin/create', violin_controller.violin_create_get);
+
+//Ruta creación de violin, POST
+router.post('/violin/create', violin_controller.violin_create_post);
+
+//Ruta eliminiación de violin, GET
+router.get('/violins/:id/delete', violin_controller.violin_remove_get);
+
+//Ruta eliminiación de violin, POST
+router.post('/violins/:id/delete', violin_controller.violin_remove_post);
+
+//Ruta UPDATE de violin, GET
+router.get('/violins/:id/update', violin_controller.violin_update_get);
+
+//Ruta UPDATE de violin, POST
+router.post('/violins/:id/update', violin_controller.violin_update_post);
+
+// Mostrar un violin
+router.get('/violins/:id', violin_controller.violin_detail_get);
 
 module.exports = router;
