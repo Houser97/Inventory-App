@@ -39,10 +39,10 @@ exports.category_violins = function(req, res, next){
         if(err){ return next(err); }
         //let name = req.params.name.charAt(0).toUpperCase();
         //name = name + req.params.name.slice(1);
-        res.render("item_list", {
+        res.render("violin_list", {
             title: 'Violins',
             category: results.category,
-            guitars: results.violins
+            violins: results.violins
         });
     });
 }
@@ -60,10 +60,10 @@ exports.category_pianos = function(req, res, next){
         if(err){ return next(err); }
         //let name = req.params.name.charAt(0).toUpperCase();
         //name = name + req.params.name.slice(1);
-        res.render("item_list", {
+        res.render("piano_list", {
             title: 'Pianos',
             category: results.category,
-            guitars: results.pianos
+            pianos: results.pianos
         });
     });
 }

@@ -10,7 +10,7 @@ const piano_controller = require('../controllers/pianoController');
 
 /// --------- Rutas para cada categoría --------- ///
 
-//------------ Guitarras
+//------------ Lista de categorías
 // GET request for list of all Guitar items
 router.get("/guitars", category_controller.category_guitars);
 
@@ -20,6 +20,8 @@ router.get("/violins", category_controller.category_violins);
 // GET request for list of all Violin items
 router.get("/pianos", category_controller.category_pianos);
 
+
+//------------ Guitarras
 // Crear guitarra, GET
 router.get('/guitar/create', guitar_controller.guitar_create_get);
 
@@ -66,5 +68,10 @@ router.get('/piano/create', piano_controller.piano_create_get);
 //Ruta creación de piano, POST
 router.post('/piano/create', piano_controller.piano_create_post);
 
+//Ruta eliminiación de piano, GET
+router.get('/pianos/:id/delete', piano_controller.piano_remove_get);
+
+//Ruta eliminiación de piano, POST
+router.post('/pianos/:id/delete', piano_controller.piano_remove_post);
 
 module.exports = router;

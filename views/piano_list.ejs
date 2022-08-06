@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/guitar_list.css' />
+    <script src="/javascripts/header.js" defer></script>
+  </head>
+
+  <body>
+    <header >
+        <h1 id="header" class="title-store">
+          <%- include('./partials/navbar.ejs') %>
+          <svg class="svg-menu" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+          </svg>
+          <svg class="svg-menu close-menu" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
+          </svg>
+          <div class="header-text">
+            <%- title %>
+          </div>
+        </h1>
+      </header>
+    <div class="description-category">
+        <h2 class="description-title">Description:</h2>
+        <p><%- category.description %></p>
+    </div>
+    <div class="item_list_container">
+      <div class="item_list_container-grid">
+        <% if(pianos.length > 0) { %>
+                <% pianos.forEach(guitar => { %>
+                    <div class="card-item">
+                      <a id="card-link" href=<%- guitar.url %>></a>
+                      <div class="svg-delete-update">
+                        <a href= <%- `${guitar.url}/delete` %>>
+                          <svg class="svg-uptadeDelete" style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                          </svg>
+                        </a>
+                        <a href= <%- `${guitar.url}/update` %>>
+                          <svg class="svg-uptadeDelete" style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                          </svg>
+                        </a>
+                      </div>
+                      <% 
+                      let srcImage = "";
+                      let idGuitar = 'image-category';
+                      if(guitar.type.name === 'Electric'){
+                        srcImage = '/images/png/guitarPNG.png';
+                      } else if(guitar.type.name === 'Acoustic'){
+                        srcImage = '/images/png/AGuitar.png';
+                      } else if(guitar.type.name === 'Acoustic-electric') {
+                        srcImage = '/images/png/EAGuitar.png';
+                      } else {
+                        srcImage = '/images/png/defaultGuitar.png';
+                        idGuitar = 'image-default';
+                      }
+                      %>
+                      <img id=<%- idGuitar %> src=<%- srcImage %> alt="Piano1">
+                      <div class="info-instrument">
+                        <div class="item-name card-category">
+                          <%- guitar.name %>
+                        </div>
+                        <div class="type card-category">
+                          Type:
+                            <%- guitar.type.name %>
+                        </div>
+                        <div class="guitar-name card-category" id="price">
+                            <div class="dollar">$</div> 
+                            <%- guitar.price %>
+                        </div>
+                        <div class="guitar-name card-category">
+                          In Stock:
+                            <%- guitar.number_in_stock %>
+                        </div>
+                        <div class="guitar-name card-category">
+                          Brand:
+                            <%- guitar.brand.name %>
+                        </div>
+                      </div>
+                    </div>
+                <% })  %>
+        <% } else { %>
+            <div class="no-guitars">There are no instruments available</div>
+            <% } %>
+      </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
