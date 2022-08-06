@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/guitar_list.css' />
+    <link rel='stylesheet' href='/stylesheets/form_guitar.css' />
+    <link rel="stylesheet" href="/stylesheets/detail_page.css">
+    <script src="/javascripts/header.js" defer></script>
+  </head>
+  <%
+  let violin_name = "";
+  let violin_brand = "";
+  if(locals.violin){
+    violin_name = violin.name;
+    violin_brand = violin.brand.name;
+  } 
+  %>
+  <body>
+
+    <header>
+    <h1 id="header" class="title-store">
+      <%- include('./partials/navbar.ejs') %>
+      <svg class="svg-menu" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+      </svg>
+      <svg class="svg-menu close-menu" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
+      </svg>
+      <div class="header-text">
+        <%- violin.name %>
+      </div>
+    </h1>
+  </header>
+
+      <section class="instrument-info-detail">
+        <h2>Description:</h2>
+        <p><%- violin.description %></p>
+        <div class="detail-info">
+            <h2>Price:</h2>
+            <p>
+              <svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z" />
+              </svg>
+              <%- violin.price %></p>
+        </div>
+        <div class="detail-info">
+            <h2> Brand:</h2>
+            <p><%- violin.brand.name %></p>
+        </div>
+        <div class="detail-info">
+          <h2> Type:</h2>
+          <p><%- violin.type.name %></p>
+        </div>
+        <div class="detail-info">
+          <h2> Id:</h2>
+          <p><%- violin._id %></p>
+        </div>
+        <div class="links-update-delete">
+          <a class="update" href=<%- `${violin.url}/update` %>>Update Violin</a>
+          <a class="delete" href=<%- `${violin.url}/delete` %>>Delete Violin</a>
+        </div>
+      </section>
+  
+  </body>
+</html>

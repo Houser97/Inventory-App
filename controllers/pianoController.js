@@ -168,3 +168,18 @@ exports.piano_update_post = [
     }
 ];
 
+// Petición para mostrar un solo piano, GET
+exports.piano_detail_get = function(req, res, next){
+    Piano.findById(req.params.id).populate('brand').populate('type').exec(function(err, piano){
+        if(err){ return next(err) }
+        if(piano === null){
+            let err = new Error('Piano not found.');
+            err.status=404;
+            return next(err);
+        }
+        res.render('piano_detail', {
+            title: piano.name,
+            piano: piano,
+        })
+    })
+}

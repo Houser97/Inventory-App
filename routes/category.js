@@ -74,4 +74,13 @@ router.get('/pianos/:id/delete', piano_controller.piano_remove_get);
 //Ruta eliminiación de piano, POST
 router.post('/pianos/:id/delete', piano_controller.piano_remove_post);
 
+//Ruta UPDATE de piano, GET
+router.get('/pianos/:id/update', piano_controller.piano_update_get);
+
+//Ruta UPDATE de piano, POST
+router.post('/pianos/:id/update', piano_controller.piano_update_post);
+
+// Mostrar una guitarra
+router.get('/pianos/:id', piano_controller.piano_detail_get);
+
 module.exports = router;
