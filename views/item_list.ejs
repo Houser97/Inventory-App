@@ -31,6 +31,7 @@
         <% if(guitars.length > 0) { %>
                 <% guitars.forEach(guitar => { %>
                     <div class="card-item">
+                      <a id="card-link" href=<%- guitar.url %>></a>
                       <div class="svg-delete-update">
                         <a href= <%- `${guitar.url}/delete` %>>
                           <svg class="svg-uptadeDelete" style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -62,7 +63,7 @@
                           Type:
                             <%- guitar.type.name %>
                         </div>
-                        <div class="guitar-name card-category">
+                        <div class="guitar-name card-category" id="price">
                             <div class="dollar">$</div> 
                             <%- guitar.price %>
                         </div>

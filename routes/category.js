@@ -36,6 +36,9 @@ router.get('/guitars/:id/update', guitar_controller.guitar_update_get);
 // Actualizar guitarra, POST
 router.post('/guitars/:id/update', guitar_controller.guitar_update_post);
 
+// Mostrar un guitarra
+router.get('/guitars/:id', guitar_controller.guitar_detail_get);
+
 
 
 //------------ Brands

@@ -1,0 +1,20 @@
+.instrument-info-detail {
+    padding: 10px 100px;
+} 
+
+h2 {
+    font-size: 60px;
+}
+
+.detail-info {
+    display: flex;
+    align-items: center;
+}
+
+p, h2 {
+    margin: 10px 0px;
+}
+
+p {
+    font-size: 30px;
+}

@@ -179,3 +179,19 @@ exports.guitar_update_post = [
         }
     }
 ];
+
+// Petición para mostrar una guitarra, GET
+exports.guitar_detail_get = function(req, res, next){
+    Guitar.findById(req.params.id).populate('brand').populate('type').exec(function(err, guitar){
+        if(err){ return next(err); }
+        if(guitar === null){
+            let err = new Error('Guitar not found');
+            err.status = 404;
+            return next(err);
+        }
+        res.render('guitar_detail', {
+            title: guitar.name,
+            guitar: guitar,
+        })
+    })
+}
