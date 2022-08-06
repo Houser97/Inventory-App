@@ -12,7 +12,7 @@ const pianoSchema = new Schema({
 
 //Propiedades Virtuales
 pianoSchema.virtual("url").get(function(){
-    return "/category/pianos" + this._id;
+    return "/category/pianos/" + this._id;
 })
 
 module.exports = mongoose.model("Piano", pianoSchema);

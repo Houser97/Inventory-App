@@ -11,7 +11,7 @@ const violinSchema = new Schema({
 });
 
 violinSchema.virtual('url').get(function(){
-    return '/category/violins' + this._id;
+    return '/category/violins/' + this._id;
 })
 
 module.exports = mongoose.model('Violin', violinSchema);

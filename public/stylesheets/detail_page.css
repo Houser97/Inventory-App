@@ -30,7 +30,7 @@ h2 {
     padding: 20px;
 }
 
-a {
+.update, .delete {
 
     font-size: 40px;
     padding: 10px 20px;
@@ -60,6 +60,23 @@ p, h2 {
 
 p {
     font-size: 30px;
+}
+
+#navbar {
+    font-size: 26px;
+    position: absolute;
+    right: 100%;
+    top: 100%;
+    background-color: #d6d6d6;
+    padding-right: 50px;
+    border-end-end-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 250px;
+    transition: transform 250ms ease-in-out 0s;
+}
+
+#navbar a {
+    font-size: 26px;
 }
 
 @media (max-width: 700px) {

@@ -4,7 +4,9 @@ let router = express.Router();
 const category_controller = require('../controllers/categoryController');
 const brand_controller = require('../controllers/brandController');
 const type_controller = require('../controllers/typeController');
+
 const guitar_controller = require('../controllers/guitarController');
+const piano_controller = require('../controllers/pianoController');
 
 /// --------- Rutas para cada categoría --------- ///
 
@@ -55,5 +57,14 @@ router.get('/type/create', type_controller.type_create_get);
 
 // Crear Brand, POST
 router.post('/type/create', type_controller.type_create_post);
+
+
+//------------ Pianos
+//Ruta creación de piano, GET
+router.get('/piano/create', piano_controller.piano_create_get);
+
+//Ruta creación de piano, POST
+router.post('/piano/create', piano_controller.piano_create_post);
+
 
 module.exports = router;

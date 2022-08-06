@@ -18,7 +18,7 @@ exports.category_guitars = function(req, res, next){
         if(err){ return next(err); }
         //let name = req.params.name.charAt(0).toUpperCase();
         //name = name + req.params.name.slice(1);
-        res.render("item_list", {
+        res.render("guitar_list", {
             title: 'Guitars',
             category: results.category,
             guitars: results.guitars

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/form_guitar.css' />
+    <script src="/javascripts/header.js" defer></script>
+  </head>
+  <%
+  let piano_name = "";
+  let piano_brand = "";
+  if(locals.piano){
+    piano_name = piano.name;
+    piano_brand = piano.brand.name;
+  } 
+  %>
+  <body>
+
+    <header>
+        <%- include('./partials/navbar.ejs') %>
+        <svg class="svg-menu open-menu"  viewBox="0 0 24 24">
+          <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+        </svg>
+        <svg class="svg-menu close-menu"  viewBox="0 0 24 24">
+          <path fill="currentColor" d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
+        </svg>
+        <h1 id="title-store"><%- title %></h1>
+      </header>
+  
+
+    <form action="" method="POST" id="form-guitar">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" id="name" name="name" placeholder="Name (Alesis Melody 61)" required = true
+            value = "<%- `${piano_name}` %>">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Description" required = "true">
+                <%- locals.piano ? locals.piano.description : "" %>
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select class="form-control" type="text" id="type" name="type" placeholder="Select type" required>
+                <% types.sort(function(a,b) { %>
+                    let textA = a.name.toUpperCase();
+                    let textB = b.name.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) 1:0;
+                <% })  %>
+                <% types.forEach(type => { %>
+                        <option 
+                        value= <%- type.id %>
+                        <%- locals.piano ? (paino.type.name === type.name ? 'selected' : false) : "" %>>
+                          <%- type.name %> 
+                        </option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input class="form-control" type="number" id="price" name="price" required
+          value = <%- locals.piano ? piano.price : '' %>>
+      </div>
+        <div class="form-group">
+            <label for="stock">Number in stock:</label>
+            <input class="form-control" type="number" id="stock" name="stock" required
+            value = <%- locals.piano ? piano.number_in_stock : '' %>>
+        </div>
+        <div class="form-group">
+            <label for="Brand">Brand:</label>
+            <select class="form-control" type="text" id="Brand" name="brand" placeholder="Select brand" required>
+                <% brands.sort(function(a,b) { %>
+                    let textA = a.name.toUpperCase();
+                    let textB = b.name.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) 1:0;
+                <% })  %>
+                <% brands.forEach(brand => { %>
+                        <option 
+                        value= <%- brand.id %>
+                        <%- piano_brand === brand.name ? 'selected' : "" %> > 
+                        <%- brand.name %> 
+                      </option>
+                <% }) %>
+            </select>
+        </div>
+        <button class="btn btn-primary" >Submit</button>
+    </form>
+    <% if(locals.errors) { %>
+      <ul>
+          <% for(let i = 0; i < errors.length; i++) { %>
+              <li>
+                  <%= locals.errors[i].msg %>
+              </li>
+          <% } %>
+      </ul>
+  <% } %>
+  </body>
+</html>
