@@ -45,16 +45,20 @@
                         </a>
                       </div>
                       <% 
-                      let srcImage = ""
+                      let srcImage = "";
+                      let idGuitar = 'image-category';
                       if(guitar.type.name === 'Electric'){
                         srcImage = '/images/png/guitarPNG.png';
                       } else if(guitar.type.name === 'Acoustic'){
                         srcImage = '/images/png/AGuitar.png';
                       } else if(guitar.type.name === 'Acoustic-electric') {
                         srcImage = '/images/png/EAGuitar.png';
+                      } else {
+                        srcImage = '/images/png/defaultGuitar.png';
+                        idGuitar = 'image-default';
                       }
                       %>
-                      <img id="image-category" src=<%- srcImage %> alt="Piano1">
+                      <img id=<%- idGuitar %> src=<%- srcImage %> alt="Piano1">
                       <div class="info-instrument">
                         <div class="item-name card-category">
                           <%- guitar.name %>

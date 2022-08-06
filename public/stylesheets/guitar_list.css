@@ -129,6 +129,12 @@ header{
   position: relative;
 }
 
+#image-default{
+  width: 48%;
+  height: 55%;
+  position: relative;
+} /*Para la imagen que se coloca por defecto*/
+
 a{
   color: black;
 }
@@ -180,6 +186,7 @@ a {
   height: 100%;
   z-index: 10;
 }
+
 
 @media (max-width: 360px) {
   .card-item {
