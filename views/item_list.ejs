@@ -6,6 +6,7 @@
     <link rel='stylesheet' href='/stylesheets/guitar_list.css' />
     <script src="/javascripts/header.js" defer></script>
   </head>
+
   <body>
     <header >
         <h1 id="header" class="title-store">
@@ -42,7 +43,17 @@
                           </svg>
                         </a>
                       </div>
-                      <img id="image-category" src="/images/png/guitarPNG.png" alt="Piano1">
+                      <% 
+                      let srcImage = ""
+                      if(guitar.type.name === 'Electric'){
+                        srcImage = '/images/png/guitarPNG.png';
+                      } else if(guitar.type.name === 'Acoustic'){
+                        srcImage = '/images/png/AGuitar.png';
+                      } else if(guitar.type.name === 'Acoustic-electric') {
+                        srcImage = '/images/png/EAGuitar.png';
+                      }
+                      %>
+                      <img id="image-category" src=<%- srcImage %> alt="Piano1">
                       <div class="info-instrument">
                         <div class="item-name card-category">
                           <%- guitar.name %>
@@ -62,10 +73,6 @@
                         <div class="guitar-name card-category">
                           Brand:
                             <%- guitar.brand.name %>
-                        </div>
-                        <div class="guitar-name card-category">
-                          Id:
-                            <%- guitar.id %>
                         </div>
                       </div>
                     </div>
