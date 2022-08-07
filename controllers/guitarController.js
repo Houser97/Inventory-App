@@ -72,7 +72,7 @@ exports.guitar_create_post = [
                 } else {
                     guitar.save(function(err){
                         if(err){return next(err);}
-                        res.redirect('/');
+                        res.redirect(guitar.url);
                     })
                 }
             })

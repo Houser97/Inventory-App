@@ -194,6 +194,16 @@ a {
   font-size: 44px;
 }
 
+.link-brand-type {
+  z-index: 12;
+  cursor: pointer;
+  color: rgb(0, 157, 255);
+}
+
+.link-brand-type:hover {
+  color: rgb(82, 167, 220);
+}
+
 @media (max-width: 800px){
   .description-category {
     padding: 0px 30px;

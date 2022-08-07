@@ -53,6 +53,9 @@ router.get('/brand/create', brand_controller.brand_create_get);
 // Crear Brand, POST
 router.post('/brand/create', brand_controller.brand_create_post);
 
+// Información de type
+router.get('/brands/:id', brand_controller.brand_detail_get);
+
 
 //------------ Type
 //Crear Type, GET
@@ -60,6 +63,9 @@ router.get('/type/create', type_controller.type_create_get);
 
 // Crear Brand, POST
 router.post('/type/create', type_controller.type_create_post);
+
+// Información de type
+router.get('/types/:id', type_controller.type_detail_get);
 
 
 //------------ Pianos

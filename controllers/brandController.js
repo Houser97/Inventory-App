@@ -38,3 +38,14 @@ exports.brand_create_post = [
         }
     }
 ];
+
+// Obtener información de BRAND específico
+exports.brand_detail_get = function(req, res, next){
+    Brand.findById(req.params.id).exec(function(err, brand){
+        if(err){ return next(err); }
+        res.render('brand_type_detail', {
+            title: brand.name,
+            brand_or_type: brand,
+        });
+    });
+};

@@ -8,7 +8,7 @@ const brandSchema = new Schema({
 
 //Propiedades virtuales
 brandSchema.virtual('url').get(function(){
-    return "/category/brands" + this._id;
+    return "/category/brands/" + this._id;
 });
 
 module.exports = mongoose.model("Brand", brandSchema);

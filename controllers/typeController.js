@@ -35,3 +35,14 @@ exports.type_create_post = [
         }
     }
 ];
+
+// Obtener información de TYPE específico
+exports.type_detail_get = function(req, res, next){
+    Type.findById(req.params.id).exec(function(err, type){
+        if(err){ return next(err); }
+        res.render('brand_type_detail', {
+            title: type.name,
+            brand_or_type: type,
+        });
+    });
+};
